@@ -6,7 +6,7 @@ import java.util.*;
 public class OddNumbersExterminator {
 
 
-        //(List<Integer> to co metoda exterminate ma zwraac
+        //(List<Integer> to co metoda exterminate ma zwracac
     public List<Integer> exterminate(List<Integer> numbers){
         ArrayList<Integer>oddList = new ArrayList<>();
 
