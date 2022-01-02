@@ -2,11 +2,7 @@ package com.kodilla.testing.shape;
 
 import org.junit.jupiter.api.*;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
 @DisplayName("TDD: Shape Test Suite")
@@ -85,6 +81,38 @@ public class ShapeCollectorTestSuite {
         //Then
         Assertions.assertNotNull(result);
 
+    }
+
+    @Test
+    void testGetFigureWithIndexMinusIndex()
+    {
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Circle circle = new Circle(4);
+        Square square = new Square(4);
+        Triangle triangle = new Triangle(2, 3);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(square);
+        shapeCollector.addFigure(triangle);
+
+        Shape result = shapeCollector.getFigure(-1);
+
+        Assertions.assertNull(result);
+    }
+
+    @Test
+    void testGetFigureWithoutList()
+    {
+        ShapeCollector shapeCollector = new ShapeCollector();
+        Circle circle = new Circle(4);
+        Square square = new Square(4);
+        Triangle triangle = new Triangle(2, 3);
+        shapeCollector.addFigure(circle);
+        shapeCollector.addFigure(square);
+        shapeCollector.addFigure(triangle);
+
+        Shape result = shapeCollector.getFigure( 6);
+
+        Assertions.assertNull(result);
     }
 }
 
