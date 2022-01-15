@@ -8,13 +8,13 @@ public final class Continent {
     private String continentName;
     private List<Country>countryList = new ArrayList<>();
 
-    public Continent(String continentName, List<Country> countryList)
+    public Continent(String continentName)
     {
         this.continentName = continentName;
-        this.countryList = countryList;
+
     }
 
-    public  final List<Country>theCountryList()
+    public List<Country>theCountryList()
     {
         return countryList;
     }

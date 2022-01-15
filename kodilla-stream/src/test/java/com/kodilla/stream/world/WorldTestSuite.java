@@ -4,8 +4,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 public class WorldTestSuite {
 
@@ -14,22 +12,20 @@ public class WorldTestSuite {
     {
         //given
         World world = new World();
-        List<Continent> continents = new ArrayList<>();
-        List<Country> countries = new ArrayList<>();
-       countries.add(new Country(new BigDecimal(36000000), "Poland"));
-       countries.add(new Country(new BigDecimal(83160000), "Germany"));
-       countries.add(new Country(new BigDecimal(10594000),"Chech Republic"));
-       continents.add(new Continent("Europe",countries));
-       world.addContinent(new Continent("Europe",countries));
+        Continent continent = new Continent("Europe");
+        Country countries = new Country(new BigDecimal(36000000),"Poland");
+        Country countries1 = new Country(new BigDecimal(86000000),"Germany");
+        Country countries2 = new Country(new BigDecimal(10000000),"Czech Republic");
+        continent.addCountry(countries);
+        continent.addCountry(countries1);
+        continent.addCountry(countries2);
+        world.addContinent(continent);
 
-       //when
-        BigDecimal peopleQuantity = world.theWorldList.stream()
-                .flatMap(continent -> continent.theCountryList().stream())
-                .map(country -> country.getPeopleQuantity())
-                .reduce(BigDecimal.ZERO,(sum,current)->sum.add(current));
+        //when
+        //world.getPeopleQuantity();
         //then
-        BigDecimal quantityOfPeople = new BigDecimal("129754000");
-        Assertions.assertEquals(quantityOfPeople,peopleQuantity);
+        BigDecimal quantityOfPeople = new BigDecimal("132000000");
+        Assertions.assertEquals(quantityOfPeople,world.getPeopleQuantity());
 
     }
 }

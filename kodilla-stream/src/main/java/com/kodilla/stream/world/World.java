@@ -13,12 +13,18 @@ public final class World {
      theWorldList.add(continent);
     }
 
-    public  final BigDecimal getPeopleQuantity (){
+    public  final BigDecimal getPeopleQuantity ()
+    {
 
-        theWorldList.stream().flatMap(continent -> continent.theCountryList().stream())
+        theWorldList.stream()
+                .flatMap(continent -> continent.theCountryList().stream())
                 .map(country -> country.getPeopleQuantity())
-                .reduce(BigDecimal.ZERO,(sum, current)-> sum.add(current));
-                return getPeopleQuantity();
+                .reduce(BigDecimal.ZERO,(sum,current)->sum.add(current));
+
+                return theWorldList.stream()
+                        .flatMap(continent -> continent.theCountryList().stream())
+                        .map(country -> country.getPeopleQuantity())
+                        .reduce(BigDecimal.ZERO,(sum,current)->sum.add(current));
 
     }
 }
