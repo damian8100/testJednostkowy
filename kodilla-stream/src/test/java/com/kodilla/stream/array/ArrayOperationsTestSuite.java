@@ -3,15 +3,20 @@ package com.kodilla.stream.array;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class ArrayOperationsTestSuite implements ArrayOperations
+public class ArrayOperationsTestSuite
 {
     @Test
     void testGetAverage()
     {
         //given
-         ArrayOperations.getAverage(new int[20]);
-         //then
-        Assertions.assertEquals(9.5,ArrayOperations.getAverage(new int[20]));
+
+        int size []= new int[]{1,1,1,1};
+
+
+
+
+
+         Assertions.assertEquals(1,ArrayOperations.getAverage(size),0.01);
 
     }
 }

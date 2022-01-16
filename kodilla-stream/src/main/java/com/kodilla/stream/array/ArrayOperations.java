@@ -8,13 +8,15 @@ public interface ArrayOperations {
 
     static double getAverage(int[] numbers){
 
+
         IntStream.range(0,numbers.length)
                 .limit(numbers.length)
+                .map(n->numbers[n])
                 .forEach(System.out::println);
-
 
         Double aver = IntStream.range(0, numbers.length)
                 .limit(numbers.length)
+                .map(n->numbers[n])
                 .average()
                 .getAsDouble();
         System.out.println("The average is: " + aver);
