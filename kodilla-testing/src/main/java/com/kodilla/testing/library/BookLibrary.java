@@ -24,11 +24,18 @@ public class BookLibrary {
         return bookList;
     }
 
-    public List<Book>listBooksInHandsOf() {
-        List<Book> borrowBookList = new ArrayList<>();
-        if (listBooksInHandsOf().isEmpty()) {
+    @Override
+    public String toString() {
+        return "BookLibrary{" +
+                "libraryDatabase=" + libraryDatabase +
+                ", libraryUser=" + libraryUser +
+                '}';
+    }
+
+    public List<Book>listBooksInHandsOf(LibraryUser libraryUser) {
+        List<Book> borrowBookList = libraryDatabase.listBooksInHandsOf(libraryUser); //Przydzielona metoda z interfejsu LiblaryDatebase
+
             return borrowBookList;
-        }
-        return null ;
+
     }
 }

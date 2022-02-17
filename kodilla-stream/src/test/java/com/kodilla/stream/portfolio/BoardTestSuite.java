@@ -142,7 +142,7 @@ class BoardTestSuite {
         assertEquals(2, longTasks);                                       // [9]
     }
     @Test
-    void testAddTaskListAverageWorkingOnTask(){
+    void gitestAddTaskListAverageWorkingOnTask(){
         //given
         Board average = prepareTestData();
 
