@@ -19,13 +19,15 @@ public class DeparatureSearch implements TheFlightRepository {
 
         if(flightsWithDeparture.size()==0) {
 
-            System.out.println("No flights with this deparature");
+            System.out.println("No flights with this deparature" + deparature);
 
         }else {
 
             System.out.println("Please find your flight");
+            System.out.println("Wait...");
+            System.out.println("Connections from city You choose:");
             flightsWithDeparture.stream()
-                    .map(f->f.getDeparatureOfAirport() + f.getArrivalOfAirport())
+                    .map(f->f.getDeparatureOfAirport()+ " " + f.getArrivalOfAirport())
                     .forEach(System.out::println);
         }
 

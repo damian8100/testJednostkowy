@@ -4,14 +4,15 @@ public class App {
 
     public static void main(String[] args) {
 
-        FlightDate flightDate = new FlightDate();
-
-        flightDate.getTheFlightList().stream()
-                .map(f->"Deparature: " + f.getDeparatureOfAirport()+ " " + "Arrival: " + f.getArrivalOfAirport())
-                .forEach(System.out::println);
-
+        DeparatureSearch deparatureSearch = new DeparatureSearch("Katowice");
+        deparatureSearch.searchAflight();
         System.out.println();
+        ArrivalSearch arrivalSearch = new ArrivalSearch("Gdańsk");
+        arrivalSearch.searchAflight();
 
+        TheFlightProcessor theFlightProcessor = new TheFlightProcessor(new FlightDate());
+        theFlightProcessor.flightsFrom("Warszawa");
+        theFlightProcessor.flightsTo("Katowice");
 
 
     }
