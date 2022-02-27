@@ -15,7 +15,7 @@ public class TheFlightProcessor {
 
     public Set<TheFlight> flightsFrom(String city){
 
-        Set<TheFlight>flightWithDeparature = (new FlightDate()).getTheFlightList().stream()
+        Set<TheFlight>flightWithDeparature = flightDate.getTheFlightList().stream()
                 .filter(f->f.getDeparatureOfAirport().equals(city))
                 .collect(Collectors.toSet());
 
@@ -25,7 +25,7 @@ public class TheFlightProcessor {
 
     public Set<TheFlight> flightsTo(String city){
 
-        Set<TheFlight>flightsWithArrival = (new FlightDate()).getTheFlightList().stream()
+        Set<TheFlight>flightsWithArrival = flightDate.getTheFlightList().stream()
                 .filter((b->b.getArrivalOfAirport().equals(city)))
                 .collect(Collectors.toSet());
 
@@ -36,26 +36,22 @@ public class TheFlightProcessor {
         Set<TheFlight>fromCity = flightsFrom(start);
         Set<TheFlight>toCity = flightsTo(end);
 
-        for(TheFlight theFlight:flightDate.getTheFlightList()){
 
-            Set<TheFlight>flightwith = flightDate.getTheFlightList().stream()
-                    .filter(f->f.getDeparatureOfAirport().equals(theFlight.getArrivalOfAirport())&&!(f.getArrivalOfAirport().equals(theFlight.getDeparatureOfAirport())))
-                    .map(f->new TheFlight(theFlight.getDeparatureOfAirport(), f.getArrivalOfAirport()))
-                    .collect(Collectors.toSet());
+        Set<TheFlight>results = new HashSet<>();
+
+        for(TheFlight first : fromCity){
+
+            for(TheFlight last : toCity){
+
+                if (first.getArrivalOfAirport().equals(last.getDeparatureOfAirport())){
+
+                    results.add(first);
+                    results.add(last);
+
+                }
+            }
         }
 
-
-
-
-       // for(int i = 0; i<fromCity.size(); i++) {
-       //     for( int j =0; i<toCity.size(); j++) {
-
-        //      }
-       //     }
-
-
-
-
-        return new HashSet<>();
+        return new HashSet<>(results);
     }
 }

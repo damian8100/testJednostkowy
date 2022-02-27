@@ -11,8 +11,9 @@ public class App {
         arrivalSearch.searchAflight();
 
         TheFlightProcessor theFlightProcessor = new TheFlightProcessor(new FlightDate());
-        theFlightProcessor.flightsFrom("Warszawa");
-        theFlightProcessor.flightsTo("Katowice");
+        System.out.println(theFlightProcessor.flightsFrom("Warszawa"));
+        System.out.println(theFlightProcessor.flightsTo("Katowice"));
+        System.out.println(theFlightProcessor.indirectFlights("Katowice", "Gdańsk"));
 
 
     }
