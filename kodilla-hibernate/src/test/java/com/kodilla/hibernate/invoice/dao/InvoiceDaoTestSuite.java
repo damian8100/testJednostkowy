@@ -28,14 +28,12 @@ public class InvoiceDaoTestSuite {
         Product product = new Product(1,"Mleko");
         Product product1 = new Product(2,"Krzesło");
         Item item = new Item(1,new BigDecimal(20),4,new BigDecimal(4),product);
-        Item item1 = new Item(2,new BigDecimal(57),2,new BigDecimal(1),product1);
         Invoice invoice = new Invoice(1,"4");
         invoice.getItems().add(item);
-        invoice.getItems().add(item1);
+        invoice.getItems().add(item);
         item.setInvoice(invoice);
-        item1.setInvoice(invoice);
         product.setItem(item);
-        product1.setItem(item1);
+        product1.setItem(item);
         //when
         //
 
