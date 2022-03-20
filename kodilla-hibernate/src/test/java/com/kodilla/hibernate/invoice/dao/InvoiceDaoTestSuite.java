@@ -57,7 +57,8 @@ public class InvoiceDaoTestSuite {
 
 
 
-    //CleanUp
+    //
+    // CleanUp
     //try {
     //    companyDao.deleteById(softwareMachineId);
     //    companyDao.deleteById(dataMaestersId);
