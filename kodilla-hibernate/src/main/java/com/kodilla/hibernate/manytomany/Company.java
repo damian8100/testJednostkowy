@@ -15,7 +15,7 @@ import java.util.List;
 )
 
 @Entity
-@Table(name = "COMPANIES")
+@Table(name = "COMPANY")
 public class Company {
 
     private int id;
@@ -51,7 +51,7 @@ public class Company {
         this.name = name;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "company")
     public List<Employee> getEmployees() {
         return employees;
     }
