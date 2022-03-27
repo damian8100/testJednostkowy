@@ -44,12 +44,5 @@ public class InvoiceDaoTestSuite {
 
         assertNotEquals(0, id);
     }
-    // CleanUp
-    //try {
-    //    companyDao.deleteById(softwareMachineId);
-    //    companyDao.deleteById(dataMaestersId);
-    //    companyDao.deleteById(greyMatterId);
-    //} catch (Exception e) {
-    //    //do nothing
-    //}
+
 }
