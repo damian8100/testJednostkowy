@@ -8,9 +8,9 @@ import java.util.List;
 
 
 @NamedNativeQuery(
-        name = "firstThreeCharOfName",
+        name = "Company.firstThreeCharOfName",
         query = "SELECT * FROM COMPANY" +
-                " WHERE SUBSTRING (name, 1,3)",
+                " WHERE SUBSTRING (name, 1,3) = :NAME",
         resultClass = Company.class
 )
 

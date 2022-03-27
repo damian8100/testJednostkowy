@@ -32,8 +32,8 @@ public class InvoiceDaoTestSuite {
         invoice.getItems().add(item);
         invoice.getItems().add(item);
         item.setInvoice(invoice);
-        product.setItem(item);
-        product1.setItem(item);
+        product.getItems().add(item);
+        product1.getItems().add(item);
         //when
         //
 
@@ -44,20 +44,6 @@ public class InvoiceDaoTestSuite {
 
         assertNotEquals(0, id);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    //
     // CleanUp
     //try {
     //    companyDao.deleteById(softwareMachineId);

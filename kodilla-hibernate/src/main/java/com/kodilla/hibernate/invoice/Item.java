@@ -66,7 +66,7 @@ public class Item {
     public void setValue(BigDecimal value) {
         this.value = value;
     }
-    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinColumn(name= "PRODUCT_ID")
     public Product getProduct() {
         return product;
