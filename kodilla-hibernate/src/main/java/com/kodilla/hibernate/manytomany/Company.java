@@ -7,10 +7,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-@NamedNativeQuery(
+@NamedNativeQuery( //W tym przypadku stosujemy nazwe kolumny w tym przypadku COMPANY_NAME
         name = "Company.firstThreeCharOfName",
         query = "SELECT * FROM COMPANY" +
-                " WHERE SUBSTRING (name, 1,3) = :NAME",
+                " WHERE SUBSTRING(COMPANY_NAME, 1,3) = :NAME",
         resultClass = Company.class
 )
 
@@ -51,7 +51,7 @@ public class Company {
         this.name = name;
     }
 
-    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "company")
+    @ManyToMany(cascade = CascadeType.ALL, mappedBy = "companies") //tak jak w kalise Employee
     public List<Employee> getEmployees() {
         return employees;
     }

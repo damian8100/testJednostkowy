@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -15,6 +16,7 @@ class CompanyDaoTestSuite {
 
     @Autowired
     private CompanyDao companyDao;
+    @Autowired
     private EmployeeDao employeeDao;
 
     @Test
@@ -68,8 +70,8 @@ class CompanyDaoTestSuite {
         int beforeSize = createListBeforeAddEmployer.size();
         Employee johnSmith = new Employee("John", "Smith");
         employeeDao.save(johnSmith);
-        List<Employee>getLastName = employeeDao.getLastName("Smith");
-
+        List<Employee>getLastName = new ArrayList<>();
+        getLastName.add(johnSmith);
 
         assertEquals(beforeSize+1,getLastName.size());
     }
