@@ -14,6 +14,13 @@ import java.util.List;
         resultClass = Company.class
 )
 
+@NamedNativeQuery(
+        name = "Company.searchCompanyName",
+        query = "SELECT * FROM COMPANY" +
+                " WHERE COMPANY_NAME LIKE CONCAT('%', :NAME_PART, '%')",
+        resultClass = Company.class
+)
+
 @Entity
 @Table(name = "COMPANY")
 public class Company {

@@ -9,6 +9,5 @@ include 'kodilla-hibernate'
 include 'kodilla-sudoku'
 include 'kodilla-patterns'
 include 'kodilla-jdbc'
-
-
+include 'kodilla-patterns2'
 

@@ -10,6 +10,13 @@ import java.util.List;
         name = "Employee.getLastName",
         query = "FROM Employee WHERE lastname>: LASTNAME"
 )
+
+@NamedNativeQuery(
+        name = "Employee.searchEmployeeName",
+        query = "SELECT * FROM EMPLOYEES" +
+                " WHERE LASTNAME LIKE CONCAT('%', :EMPLOYEE_PART, '%')",
+        resultClass = Employee.class
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
